@@ -2,7 +2,7 @@ extends Node
 
 var num_player = Input.get_connected_joypads().size()
 var players: Array = []
-var input_map: Array = []
+var input_maps: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,11 +24,11 @@ func add_player(device: int):
 	players.append(player_instance)
 	print(players)
 	
-	input_map.append({
+	input_maps.append({
 		"ui_up{n}".format({"n": device}): Vector2.UP,
 		"ui_right{n}".format({"n": device}): Vector2.RIGHT,
 		"ui_down{n}".format({"n": device}): Vector2.DOWN,
 		"ui_left{n}".format({"n": device}): Vector2.LEFT,
 		#TODO Add more input maps here
 	})
-	
+	player.ui_input = input_maps
